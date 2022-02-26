@@ -1,0 +1,1 @@
+Run the program in administrator or it will not use the commands correctly
