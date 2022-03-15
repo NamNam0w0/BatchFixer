@@ -135,15 +135,14 @@ goto F3
 :F1
 cls
 goto Fix1
-cls
+
 :F2
 cls
 goto Fix2
-cls
+
 :F3
 cls
 goto Fix3
-cls
 
 :Fix1
 
@@ -156,6 +155,7 @@ ipconfig /flushdns
 Echo Resetted Netsh, Winsock, and Flushed DNS
 
 pause
+cls
 
 goto Main
 
@@ -170,6 +170,7 @@ Dism /Online /Cleanup-Image /RestoreHealth
 Echo Finished Image Cleanup Check, Scan, and Restore
 
 pause
+cls
 
 goto Main
 
@@ -178,5 +179,6 @@ goto Main
 Echo This part is under construction and hasnt been made yet
 
 pause
+cls
 
 goto Main
