@@ -176,7 +176,43 @@ goto Main
 
 :Fix3
 
-Echo This part is under construction and hasnt been made yet
+ECHO ---------------------------------------------------------------------------
+ECHO ALL CREDIT TO YIFFER FOR THIS WHOLE PART OF THE CODE, I DID NOT CODE ANY OF OPTION 3
+ECHO Yiffers Github Page ^> https://github.com/yiffer
+ECHO ---------------------------------------------------------------------------
+ECHO Machine:
+wmic computersystem get manufacturer,model,name
+ECHO ---------------------------------------------------------------------------
+ECHO CPU:
+wmic cpu get name,numberofcores
+ECHO ---------------------------------------------------------------------------
+ECHO BIOS:
+wmic bios get manufacturer,serialnumber,smbiosbiosversion
+ECHO ---------------------------------------------------------------------------
+ECHO RAM sticks:
+wmic memorychip where "devicelocator != 'SYSTEM ROM'" get capacity,devicelocator,manufacturer,partnumber
+ECHO ---------------------------------------------------------------------------
+ECHO OS:
+wmic os get caption,installdate,osarchitecture,totalvisiblememorysize
+ECHO ---------------------------------------------------------------------------
+ECHO Physical drives:
+wmic diskdrive get index,firmwarerevision,model,size
+ECHO ---------------------------------------------------------------------------
+ECHO Logical drives:
+wmic logicaldisk get description,deviceid,freespace,size,volumename
+ECHO ---------------------------------------------------------------------------
+ECHO Physical network interface(s):
+wmic NIC where "physicaladapter=TRUE" get MACAddress,ProductName | findstr /v /C:"Virtual"
+ECHO ---------------------------------------------------------------------------
+ECHO Currently active network interfaces:
+wmic nicconfig where ipenabled="TRUE" get description,macaddress,ipaddress,dhcpleaseobtained
+ECHO ---------------------------------------------------------------------------
+ECHO Display Adapters
+for /F "tokens=* skip=1" %%n in ('WMIC path Win32_VideoController get Name ^| findstr "."') do set GPU_NAME=%%n
+echo %GPU_NAME%
+ECHO ---------------------------------------------------------------------------
+PAUSE
+
 
 pause
 cls
