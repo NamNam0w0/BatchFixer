@@ -1,4 +1,4 @@
-//// This Multi Tool Created by HG4U_Terminal
+//// This Multi Tool Created by NamNam0w0
 
 cls
 @echo off
