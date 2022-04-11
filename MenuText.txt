@@ -1,0 +1,20 @@
+                                                                                                                 
+✞ _|      _|                            _|      _|                              _|                          _|    
+✞ _|_|    _|    _|_|_|  _|_|_|  _|_|    _|_|    _|    _|_|_|  _|_|_|  _|_|    _|  _|  _|      _|      _|  _|  _|  
+✞ _|  _|  _|  _|    _|  _|    _|    _|  _|  _|  _|  _|    _|  _|    _|    _|  _|  _|  _|      _|      _|  _|  _|  
+✞ _|    _|_|  _|    _|  _|    _|    _|  _|    _|_|  _|    _|  _|    _|    _|  _|  _|    _|  _|  _|  _|    _|  _|  
+✞ _|      _|    _|_|_|  _|    _|    _|  _|      _|    _|_|_|  _|    _|    _|    _|        _|      _|        _|  
+                     ╔═══════════════════════════════════════════════════════════════╗
+                    ✞║ <3 ¦ ➫ Make sure you ran this in Administator	             ║✞
+                    ✞║ <3 ¦ ➫ This tool was made by NamNam0w0#0001 	             ║✞
+                    ✞║ <3 ¦ ➫ Join My Discord > https://discord.gg/PkTfxvSjvr        ║✞
+                    ✞║ <3 ¦ ➫ This tool fixes common issues			     ║✞
+                     ╚═══════════════════════════════════════════════════════════════╝
+
+                    ✞ > Say the number corresponding to the option to proceed
+
+                    ✞ > 1 To Attempt a Fix for Network Related Issues
+
+                    ✞ > 2 To Attempt a Fix for Image Cleanup Stuff
+
+                    ✞ > 3 To Print your Device Information (CPU, GPU, RAM, ETC)
