@@ -1,12 +1,60 @@
 //// This Multi Tool Created by NamNam0w0
+rem DID NOT MAKE THIS PART, IT IS MADE BY https://www.winhelponline.com/blog/automatically-elevate-batch-file-run-administrator/
+::::::::::::::::::::::::::::::::::::::::::::
+:: Automatically check & get admin rights V2
+::::::::::::::::::::::::::::::::::::::::::::
+@echo off
+CLS
+ECHO.
+ECHO =============================
+ECHO Running Admin shell
+ECHO =============================
+
+:init
+setlocal DisableDelayedExpansion
+set "batchPath=%~0"
+for %%k in (%0) do set batchName=%%~nk
+set "vbsGetPrivileges=%temp%\OEgetPriv_%batchName%.vbs"
+setlocal EnableDelayedExpansion
+
+:checkPrivileges
+NET FILE 1>NUL 2>NUL
+if '%errorlevel%' == '0' ( goto gotPrivileges ) else ( goto getPrivileges )
+
+:getPrivileges
+if '%1'=='ELEV' (echo ELEV & shift /1 & goto gotPrivileges)
+ECHO.
+ECHO **************************************
+ECHO Invoking UAC for Privilege Escalation
+ECHO **************************************
+
+ECHO Set UAC = CreateObject^("Shell.Application"^) > "%vbsGetPrivileges%"
+ECHO args = "ELEV " >> "%vbsGetPrivileges%"
+ECHO For Each strArg in WScript.Arguments >> "%vbsGetPrivileges%"
+ECHO args = args ^& strArg ^& " "  >> "%vbsGetPrivileges%"
+ECHO Next >> "%vbsGetPrivileges%"
+ECHO UAC.ShellExecute "!batchPath!", args, "", "runas", 1 >> "%vbsGetPrivileges%"
+"%SystemRoot%\System32\WScript.exe" "%vbsGetPrivileges%" %*
+exit /B
+
+:gotPrivileges
+setlocal & pushd .
+cd /d %~dp0
+if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
+
+::::::::::::::::::::::::::::
+::START
+::::::::::::::::::::::::::::
+rem EVERYTHING ON TOP OF THIS NOT BY ME, FROM https://www.winhelponline.com/blog/automatically-elevate-batch-file-run-administrator/
 @echo off
 @rem
-title NamNam0w0 loves you ^<3
+title NamNam0w0 loves you ^<3 || V0.4
 chcp 65001 >nul
+pushd "%~dp0"
 cls
 :Main
 color 04
-type MenuText.txt
+type C:\Users\realn\OneDrive\Documents\GitHub\BatchFixer\MenuText.txt
 rem this prints the option menu for people to see the options
 echo.
 set /p ans="//0w0 ✞ >"
@@ -22,6 +70,16 @@ goto F2
 if %ans%==3 (
 goto F3
 )
+if %ans%==4 (
+goto F4
+)
+if %ans%==5 (
+goto F5
+)
+if %ans%==6 (
+goto F6
+)
+
 rem Organization 1
 
 :F1
@@ -35,6 +93,18 @@ goto Fix2
 :F3
 cls
 goto Fix3
+
+:F4
+cls
+goto Fix4
+
+:F5
+cls
+goto Fix5
+
+:F6
+cls
+goto Fix6
 rem Organization 2
 
 :Fix1
@@ -43,9 +113,13 @@ netsh int ip reset C:\resetlog.txt
 
 netsh winsock reset
 
+ipconfig /release
+
+ipconfig /renew
+
 ipconfig /flushdns
 
-Echo Resetted Netsh, Winsock, and Flushed DNS
+Echo Resetted Winsock. Released + Renewed IP + Flushed DNS.
 
 pause
 cls
@@ -53,6 +127,25 @@ cls
 goto Main
 
 :Fix2
+
+netsh int tcp set global chimney=enabled
+netsh int tcp set global autotuninglevel=normal
+netsh int tcp set supplemental
+netsh int tcp set global dca=enabled
+netsh int tcp set global netdma=enabled
+netsh int tcp set global ecncapability=enabled
+Echo set network settings back
+
+:Fix3
+
+netsh advfirewall firewall add rule name="StopThrottling" dir=in action=block remoteip=173.194.55.0/24,206.111.0.0/16 enable=yes
+
+pause
+cls
+
+goto Main
+
+:Fix4
 
 Dism /Online /Cleanup-Image /CheckHealth
 
@@ -67,7 +160,19 @@ cls
 
 goto Main
 
-:Fix3
+:Fix5
+
+net stop audiosrv
+Echo Press enter when ready to start the audio back up
+pause
+net start audiosrv
+
+pause
+cls
+
+goto Main
+
+:Fix6
 
 ECHO ---------------------------------------------------------------------------
 ECHO ALL CREDIT TO YIFFER FOR THIS WHOLE PART OF THE CODE, I DID NOT CODE ANY OF OPTION 3
@@ -104,8 +209,6 @@ ECHO Display Adapters
 for /F "tokens=* skip=1" %%n in ('WMIC path Win32_VideoController get Name ^| findstr "."') do set GPU_NAME=%%n
 echo %GPU_NAME%
 ECHO ---------------------------------------------------------------------------
-PAUSE
-
 
 pause
 cls

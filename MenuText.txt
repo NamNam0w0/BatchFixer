@@ -7,14 +7,20 @@
                      ╔═══════════════════════════════════════════════════════════════╗
                     ✞║ <3 ¦ ➫ Make sure you ran this in Administator	             ║✞
                     ✞║ <3 ¦ ➫ This tool was made by NamNam0w0#0001 	             ║✞
-                    ✞║ <3 ¦ ➫ Join My Discord > https://discord.gg/PkTfxvSjvr        ║✞
+                    ✞║ <3 ¦ ➫ My Socials > https://solo.to/NamNam0w0                 ║✞
                     ✞║ <3 ¦ ➫ This tool fixes common issues			     ║✞
                      ╚═══════════════════════════════════════════════════════════════╝
 
                     ✞ > Say the number corresponding to the option to proceed
 
-                    ✞ > 1 To Attempt a Fix for Network Related Issues
+                    ✞ > 1 Attempt a fix via resetting winsock, releasing and renewing IP, and flushing DNS
 
-                    ✞ > 2 To Attempt a Fix for Image Cleanup Stuff
+                    ✞ > 2 Set network settings back to regular through netsh
 
-                    ✞ > 3 To Print your Device Information (CPU, GPU, RAM, ETC)
+                    ✞ > 3 Attempt to fix streaming issues (such as youtube etc) works via stopping throttling through firewall
+
+                    ✞ > 4 Check, Scan, and Restoring the Health with Deployment Image Servicing and Management
+
+                    ✞ > 5 Restart Audio Services (sometimes fixes crackling audio and bluetooth connection audio issues)
+
+                    ✞ > 6 To print your device information (CPU, GPU, Ram, etc)
